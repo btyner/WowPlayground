@@ -16,7 +16,7 @@ class RealmList extends Component {
   render() {
     return (
       <div className="form-group">
-        <label for="ddlRealms"> Realm: </label>
+        <label className="sr-only" htmlFor="ddlRealms">Realm</label>
         <select id="ddlRealms" className="form-control" onChange={this.props.onChange}>
           <option>"Select a Realm"</option>
           {

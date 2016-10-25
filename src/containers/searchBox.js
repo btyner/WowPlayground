@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { characterInfo } from '../actions';
 import RealmList from './realmList';
 
+import "./searchBox.sass";
+
 class SearchBox extends Component {
   constructor (props) {
     super(props);
@@ -36,19 +38,31 @@ class SearchBox extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit} className="form-inline">
-        <RealmList onChange={this.onSelectChange} />
-        <div className="form-group">
-          <label for="txtCharacterName"> Character Name: </label>
-          <input
-            id="txtCharacterName"
-            placeholder="Enter character name."
-            className="form-control"
-            value={this.state.name}
-            onChange={this.onInputChange} />
-          <button type="submit" className="btn btn-primary">Submit</button>
+      <div className="SearchBox">
+        <div className="container">
+          <div className="row">
+            <form onSubmit={this.onFormSubmit} >
+              <div className="col-md-3">
+                <RealmList onChange={this.onSelectChange} />
+              </div>
+              <div className="col-md-9">
+                <div className="input-group">
+                  <label className="sr-only" htmlFor="txtCharacterName">Character Name</label>
+                  <input
+                    id="txtCharacterName"
+                    placeholder="Enter character name."
+                    className="form-control"
+                    value={this.state.name}
+                    onChange={this.onInputChange} />
+                  <span className="input-group-btn">
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-      </form>
+      </div>
     )
   }
 }
